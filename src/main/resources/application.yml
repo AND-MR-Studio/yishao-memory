@@ -17,4 +17,4 @@ spring:
     database-platform: org.hibernate.dialect.MySQL8Dialect
   data:
     mongodb:
-      uri: mongodb://localhost:27017/yishao_memory
+      uri: mongodb://115.190.11.188:27017/yishao_memory

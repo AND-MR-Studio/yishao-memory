@@ -28,4 +28,51 @@ public class Soup {
     @Field(targetType = FieldType.DATE_TIME)
     private LocalDateTime createdAt;
 
+    public String getSoupId() {
+        return soupId;
+    }
+
+    public void setSoupId(String soupId) {
+        this.soupId = soupId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getSoupSurface() {
+        return soupSurface;
+    }
+
+    public void setSoupSurface(String soupSurface) {
+        this.soupSurface = soupSurface;
+    }
+
+    public String getSoupBottom() {
+        return soupBottom;
+    }
+
+    public void setSoupBottom(String soupBottom) {
+        this.soupBottom = soupBottom;
+    }
+
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setTags(List<String> tags) {
+        this.tags = tags;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }
