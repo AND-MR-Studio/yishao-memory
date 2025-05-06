@@ -9,39 +9,51 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.Map;
 
+/**
+ * 用户信息实体
+ * 使用MySQL存储用户基本信息
+ */
 @Entity
-@Table(name = "users")
+@Table(name = "user_info")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
+public class UserInfo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * 用户唯一标识，微信小程序的openId
+     */
     @Column(nullable = false, unique = true)
-    private String openId;
+    private String userId;
 
+    /**
+     * 用户昵称
+     */
     @Column(nullable = false)
-    private String name;
+    private String nickname;
 
+    /**
+     * 用户头像URL
+     */
     @Column(nullable = false)
     private String avatarUrl;
 
     /**
-     * soupId -> dialogHistoryId
+     * 创建时间
      */
-    @Column(name = "soup_dialog_history")
-    private Map<String, Long> soupDialogHistory;
-
     @Column(name = "created_at", updatable = false)
     @CreationTimestamp
     private LocalDateTime createdAt;
 
+    /**
+     * 更新时间
+     */
     @Column(name = "updated_at")
     @UpdateTimestamp
     private LocalDateTime updatedAt;
