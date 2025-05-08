@@ -1,7 +1,7 @@
 spring:
   datasource:
-    url: jdbc:mysql://115.190.11.188:3306/memory_db?useSSL=false&serverTimezone=UTC
-    username: yavin
+    url: jdbc:mysql://115.190.11.188:3306/yishao?useSSL=false&serverTimezone=UTC
+    username: yishao
     password: alexyavin666
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:

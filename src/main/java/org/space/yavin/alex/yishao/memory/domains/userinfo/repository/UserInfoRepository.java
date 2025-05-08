@@ -1,14 +1,10 @@
 package org.space.yavin.alex.yishao.memory.domains.userinfo.repository;
 
-import org.space.yavin.alex.yishao.memory.domains.userinfo.entity.UserInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
 import java.util.Optional;
+import org.space.yavin.alex.yishao.memory.domains.userinfo.entity.UserInfo;
 
-/**
- * 用户信息仓库接口
- */
 @Repository
 public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
     
@@ -18,4 +14,5 @@ public interface UserInfoRepository extends JpaRepository<UserInfo, Long> {
      * @return 用户信息（可能不存在）
      */
     Optional<UserInfo> findByUserId(String userId);
+
 }
