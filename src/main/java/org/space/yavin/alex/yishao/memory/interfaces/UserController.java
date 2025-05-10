@@ -1,4 +1,4 @@
-package org.space.yavin.alex.yishao.memory.interfaces.controller;
+package org.space.yavin.alex.yishao.memory.interfaces;
 
 import lombok.RequiredArgsConstructor;
 import org.space.yavin.alex.yishao.memory.domains.userinfo.dto.UserDto;

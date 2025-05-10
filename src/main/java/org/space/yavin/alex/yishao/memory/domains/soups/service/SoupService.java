@@ -1,9 +1,13 @@
 package org.space.yavin.alex.yishao.memory.domains.soups.service;
 
+import org.space.yavin.alex.yishao.memory.domains.soups.dto.SoupDTO;
 import org.space.yavin.alex.yishao.memory.domains.soups.entity.Soup;
 import org.space.yavin.alex.yishao.memory.domains.soups.repository.SoupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,12 +18,27 @@ public class SoupService {
     public Soup createSoup(Soup soup) {
         return soupRepository.save(soup);
     }
+    
+    public Soup createSoup(SoupDTO soupDTO) {
+        Soup soup = new Soup();
+        soup.setTitle(soupDTO.getTitle());
+        soup.setSoupSurface(soupDTO.getSoupSurface());
+        soup.setSoupBottom(soupDTO.getSoupBottom());
+        soup.setTags(soupDTO.getTags());
+        
+        // 设置默认值
+        soup.setLikedNum(0);
+        soup.setCollectNum(0);
+        soup.setCreatedAt(LocalDateTime.now());
+        soup.setUpdatedAt(LocalDateTime.now());
+        return soupRepository.save(soup);
+    }
 
-    public Optional<Soup> getSoupById(String soupId) {
+    public Optional<Soup> getSoupById(Long soupId) {
         return soupRepository.findById(soupId);
     }
 
-    public Soup updateSoup(String soupId, Soup soupDetails) {
+    public Soup updateSoup(Long soupId, SoupDTO soupDetails) {
         Soup soup = soupRepository.findById(soupId).orElseThrow();
         soup.setTitle(soupDetails.getTitle());
         soup.setSoupSurface(soupDetails.getSoupSurface());
@@ -28,7 +47,7 @@ public class SoupService {
         return soupRepository.save(soup);
     }
 
-    public void deleteSoup(String soupId) {
+    public void deleteSoup(Long soupId) {
         soupRepository.deleteById(soupId);
     }
 }

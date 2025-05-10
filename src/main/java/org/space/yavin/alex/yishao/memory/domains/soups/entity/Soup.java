@@ -1,10 +1,9 @@
 package org.space.yavin.alex.yishao.memory.domains.soups.entity;
 
-// 添加缺失的导入
-
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -42,6 +41,9 @@ public class Soup {
     private Integer CollectNum;
 
     @Column(name = "created_at", nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime createdAt;
+
+    @Column(name = "updated_at")
+    @LastModifiedDate
+    private LocalDateTime updatedAt;
 }

@@ -8,51 +8,62 @@ import org.springframework.data.domain.Sort;
  * @create 2025/5/10
  */
 public class Page implements Pageable {
-    private int page;
-    private int size;
+    private final int page;
+    private final int size;
+    private final Sort sort;
+
+    public Page(int page, int size) {
+        this(page, size, Sort.unsorted());
+    }
+
+    public Page(int page, int size, Sort sort) {
+        this.page = page;
+        this.size = size;
+        this.sort = sort;
+    }
 
     @Override
     public int getPageNumber() {
-        return 0;
+        return page;
     }
 
     @Override
     public int getPageSize() {
-        return 0;
+        return size;
     }
 
     @Override
     public long getOffset() {
-        return 0;
+        return (long) page * size;
     }
 
     @Override
     public Sort getSort() {
-        return null;
+        return sort;
     }
 
     @Override
     public Pageable next() {
-        return null;
+        return new Page(page + 1, size, sort);
     }
 
     @Override
     public Pageable previousOrFirst() {
-        return null;
+        return page > 0 ? new Page(page - 1, size, sort) : this;
     }
 
     @Override
     public Pageable first() {
-        return null;
+        return new Page(0, size, sort);
     }
 
     @Override
     public Pageable withPage(int pageNumber) {
-        return null;
+        return new Page(pageNumber, size, sort);
     }
 
     @Override
     public boolean hasPrevious() {
-        return false;
+        return page > 0;
     }
 }

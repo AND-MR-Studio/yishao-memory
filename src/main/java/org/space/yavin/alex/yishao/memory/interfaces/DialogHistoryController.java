@@ -1,4 +1,4 @@
-package org.space.yavin.alex.yishao.memory.interfaces.controller;
+package org.space.yavin.alex.yishao.memory.interfaces;
 
 import lombok.RequiredArgsConstructor;
 import org.space.yavin.alex.yishao.memory.domains.conversation.entity.Message;
@@ -10,7 +10,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * 对话历史控制器
@@ -19,21 +18,10 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/v1/dialogs")
 @RequiredArgsConstructor
-public class MongoDialogHistoryController {
+public class DialogHistoryController {
 
     private final MongoDialogHistoryService dialogHistoryService;
-    private final SoupService soupService;
 
-    /**
-     * 获取所有可用的汤
-     * 用户打开小程序页面时调用
-     *
-     * @return 汤列表
-     */
-    @GetMapping("/soups")
-    public ResponseEntity<List<Soup>> getAllSoups() {
-        return ResponseEntity.ok(soupService.getAllSoups());
-    }
 
     /**
      * 获取用户在特定汤下的对话历史
