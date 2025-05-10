@@ -4,7 +4,6 @@ import org.space.yavin.alex.yishao.memory.domains.soups.entity.Soup;
 import org.space.yavin.alex.yishao.memory.domains.soups.repository.SoupRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -14,10 +13,6 @@ public class SoupService {
 
     public Soup createSoup(Soup soup) {
         return soupRepository.save(soup);
-    }
-
-    public List<Soup> getAllSoups() {
-        return soupRepository.findAll();
     }
 
     public Optional<Soup> getSoupById(String soupId) {
