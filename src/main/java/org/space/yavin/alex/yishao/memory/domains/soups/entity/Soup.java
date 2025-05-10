@@ -34,16 +34,18 @@ public class Soup {
     @Column(name = "tags")
     private List<String> tags;
 
-    @Column(name = "liked_num")
-    private Integer LikedNum;
+    @Column(name = "likes")
+    private Integer likes;
 
-    @Column(name = "collect_num")
-    private Integer CollectNum;
+    @Column(name = "favorites")
+    private Integer favorites;
 
     @Column(name = "created_at", nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
     @LastModifiedDate
+    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime updatedAt;
 }

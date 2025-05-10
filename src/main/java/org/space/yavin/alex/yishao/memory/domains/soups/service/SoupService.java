@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,8 +26,8 @@ public class SoupService {
         soup.setTags(soupDTO.getTags());
         
         // 设置默认值
-        soup.setLikedNum(0);
-        soup.setCollectNum(0);
+        soup.setLikes(0);
+        soup.setFavorites(0);
         soup.setCreatedAt(LocalDateTime.now());
         soup.setUpdatedAt(LocalDateTime.now());
         return soupRepository.save(soup);

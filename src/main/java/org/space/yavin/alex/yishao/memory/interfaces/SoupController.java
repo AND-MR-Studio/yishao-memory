@@ -4,6 +4,7 @@ import org.space.yavin.alex.yishao.memory.domains.soups.dto.SoupDTO;
 import org.space.yavin.alex.yishao.memory.domains.soups.entity.Soup;
 import org.space.yavin.alex.yishao.memory.domains.soups.service.SoupService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,9 +20,10 @@ public class SoupController {
     @Autowired
     private SoupService soupService;
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Soup> createSoup(@RequestBody SoupDTO soupDTO) {
-        return ResponseEntity.status(201).body(soupService.createSoup(soupDTO));
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(soupService.createSoup(soupDTO));
     }
 
     @GetMapping("/{soupId}")

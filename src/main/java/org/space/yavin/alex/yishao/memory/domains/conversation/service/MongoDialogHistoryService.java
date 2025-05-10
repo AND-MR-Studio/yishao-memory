@@ -18,7 +18,7 @@ import java.util.Optional;
 public class MongoDialogHistoryService {
 
     private final MongoDialogHistoryRepository repository;
-    
+
     /**
      * 获取用户在特定汤下的对话历史
      * 如果不存在则创建新的对话历史
@@ -38,12 +38,12 @@ public class MongoDialogHistoryService {
                     return repository.save(newHistory);
                 });
     }
-    
+
     /**
      * 添加消息到对话历史
      *
-     * @param userId 用户ID
-     * @param soupId 汤ID
+     * @param userId  用户ID
+     * @param soupId  汤ID
      * @param message 消息
      * @return 更新后的对话历史
      */
@@ -52,7 +52,7 @@ public class MongoDialogHistoryService {
         history.addMessage(message);
         return repository.save(history);
     }
-    
+
     /**
      * 获取用户的所有对话历史
      *
@@ -62,7 +62,7 @@ public class MongoDialogHistoryService {
     public List<MongoDialogHistory> getDialogHistoriesByUserId(String userId) {
         return repository.findByUserId(userId);
     }
-    
+
     /**
      * 获取特定汤的所有对话历史
      *
@@ -72,7 +72,7 @@ public class MongoDialogHistoryService {
     public List<MongoDialogHistory> getDialogHistoriesBySoupId(String soupId) {
         return repository.findBySoupId(soupId);
     }
-    
+
     /**
      * 获取特定对话历史
      *
@@ -82,7 +82,7 @@ public class MongoDialogHistoryService {
     public Optional<MongoDialogHistory> getDialogHistoryById(String id) {
         return repository.findById(id);
     }
-    
+
     /**
      * 删除对话历史
      *
