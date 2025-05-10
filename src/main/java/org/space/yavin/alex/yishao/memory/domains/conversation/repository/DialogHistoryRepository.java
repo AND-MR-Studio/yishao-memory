@@ -11,7 +11,7 @@ import java.util.Optional;
  * MongoDB对话历史仓库接口
  */
 @Repository
-public interface MongoDialogHistoryRepository extends MongoRepository<MongoDialogHistory, String> {
+public interface DialogHistoryRepository extends MongoRepository<MongoDialogHistory, String> {
     
     /**
      * 根据用户ID查找所有对话历史

@@ -3,7 +3,7 @@ package org.space.yavin.alex.yishao.memory.domains.conversation.service;
 import lombok.RequiredArgsConstructor;
 import org.space.yavin.alex.yishao.memory.domains.conversation.entity.Message;
 import org.space.yavin.alex.yishao.memory.domains.conversation.entity.MongoDialogHistory;
-import org.space.yavin.alex.yishao.memory.domains.conversation.repository.MongoDialogHistoryRepository;
+import org.space.yavin.alex.yishao.memory.domains.conversation.repository.DialogHistoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -15,9 +15,9 @@ import java.util.Optional;
  */
 @Service
 @RequiredArgsConstructor
-public class MongoDialogHistoryService {
+public class DialogHistoryService {
 
-    private final MongoDialogHistoryRepository repository;
+    private final DialogHistoryRepository repository;
 
     /**
      * 获取用户在特定汤下的对话历史

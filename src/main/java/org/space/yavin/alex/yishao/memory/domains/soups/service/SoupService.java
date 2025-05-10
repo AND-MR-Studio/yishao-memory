@@ -1,5 +1,6 @@
 package org.space.yavin.alex.yishao.memory.domains.soups.service;
 
+import lombok.AllArgsConstructor;
 import org.space.yavin.alex.yishao.memory.domains.soups.dto.SoupDTO;
 import org.space.yavin.alex.yishao.memory.domains.soups.entity.Soup;
 import org.space.yavin.alex.yishao.memory.domains.soups.repository.SoupRepository;
@@ -10,13 +11,11 @@ import java.time.LocalDateTime;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class SoupService {
-    @Autowired
+
     private SoupRepository soupRepository;
 
-    public Soup createSoup(Soup soup) {
-        return soupRepository.save(soup);
-    }
     
     public Soup createSoup(SoupDTO soupDTO) {
         Soup soup = new Soup();
@@ -35,6 +34,10 @@ public class SoupService {
 
     public Optional<Soup> getSoupById(Long soupId) {
         return soupRepository.findById(soupId);
+    }
+
+    public Optional<Soup> getRandomSoup() {
+        return soupRepository.findRandom();
     }
 
     public Soup updateSoup(Long soupId, SoupDTO soupDetails) {

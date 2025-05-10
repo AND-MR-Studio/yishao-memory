@@ -3,9 +3,7 @@ package org.space.yavin.alex.yishao.memory.interfaces;
 import lombok.RequiredArgsConstructor;
 import org.space.yavin.alex.yishao.memory.domains.conversation.entity.Message;
 import org.space.yavin.alex.yishao.memory.domains.conversation.entity.MongoDialogHistory;
-import org.space.yavin.alex.yishao.memory.domains.conversation.service.MongoDialogHistoryService;
-import org.space.yavin.alex.yishao.memory.domains.soups.entity.Soup;
-import org.space.yavin.alex.yishao.memory.domains.soups.service.SoupService;
+import org.space.yavin.alex.yishao.memory.domains.conversation.service.DialogHistoryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,7 +18,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class DialogHistoryController {
 
-    private final MongoDialogHistoryService dialogHistoryService;
+    private final DialogHistoryService dialogHistoryService;
 
 
     /**
